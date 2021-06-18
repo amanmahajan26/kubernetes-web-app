@@ -17,4 +17,18 @@ spec:
       containers:
       - name: webserver
         image: amanmahajan26/flask-app
+        livenessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 5000
+          initialDelaySeconds: 10
+          timeoutSeconds: 5
+          periodSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 5000
+          initialDelaySeconds: 10
+          timeoutSeconds: 5
+          periodSeconds: 10
 ---
