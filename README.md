@@ -1,9 +1,10 @@
 ## Steps for setup
-### Minikube installation on mac
-- brew update
-- brew upgrade
-- brew install hyperkit
-- brew install minikube (installs kubectl[kubernetes-cli], docker-runtime and docker-daemon as well)
+### Required packages
+- minikube
+	- brew install minikube (installs kubectl[kubernetes-cli], docker-runtime and docker-daemon as well)
+	- brew install hyperkit
+- jq (Command-line JSON processor)
+	- brew install jq
 
 ### Starting the application
 bash setup.sh => outputs the ingress ip-address
@@ -15,10 +16,10 @@ To update the running pods, run:
 	
 ## Application architecture/strategy
 - The application is a basic flask app that runs on a local minikube cluster.
-- It runs as a docker container and being a flask app listens on port 5000.
+- It runs as a docker container and being a flask app listens on port 5000 by default.
 - It exposes 2 endpoints:
-	- / => "Well, hello there!" 
-	- /healthcheck => "OK"
+	- [GET] / => "Well, hello there!" 
+	- [GET] /healthcheck => "OK"
 - It is dockerized and the image is available in docker hub:
 	- docker pull amanmahajan26/flask-app
 - The build process is automated using github workflow meaning on every commit or PR against master branch triggers the build pipeline which updates the docker image
