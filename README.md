@@ -15,6 +15,8 @@ To update the running pods, run:
 - `bash deploy.sh`
 	
 ## Application architecture/strategy
+![image](https://user-images.githubusercontent.com/2391125/122649524-c99a0a00-d14b-11eb-85dc-821b556c5f1e.png)
+
 - The application is a basic flask-app that runs on a local minikube cluster
 - It runs as a docker container and being a flask app listens on port 5000 by default
 - It exposes 2 endpoints:
